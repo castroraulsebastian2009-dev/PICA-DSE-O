@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unidad Educativa Mundo América</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f8fc;
+    color:#17243a;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+:root{
+    --azul:#0756a8;
+    --azul-claro:#1594e8;
+    --celeste:#eaf6ff;
+    --amarillo:#ffc928;
+    --blanco:#ffffff;
+    --oscuro:#17243a;
+    --gris:#64748b;
+    --fondo:#f5f8fc;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:15px 5%;
+}
+
+.navbar{
+    max-width:1250px;
+    height:70px;
+    margin:auto;
+    padding:0 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,.95);
+    border:1px solid #e5edf5;
+    border-radius:16px;
+
+    box-shadow:0 10px 35px rgba(0,50,100,.12);
+
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-claro)
+    );
+
+    color:white;
+    font-size:21px;
+    font-weight:900;
+
+    box-shadow:0 7px 20px rgba(7,86,168,.25);
+}
+
+.logo-text{
+    font-size:17px;
+    font-weight:900;
+    color:var(--oscuro);
+}
+
+.logo-text span{
+    color:var(--azul);
+}
+
+.nav-links{
+    display:flex;
+    gap:4px;
+    list-style:none;
+}
+
+.nav-links a{
+    display:block;
+    padding:10px 13px;
+
+    color:#53657b;
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--azul);
+    background:var(--celeste);
+}
+
+.nav-button{
+    padding:11px 18px;
+
+    background:var(--azul);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.nav-button:hover{
+    background:var(--azul-claro);
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+
+    padding:140px 7% 90px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #eaf6ff 0%,
+            #ffffff 55%,
+            #fff9df 100%
+        );
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:#8bd5ff;
+
+    filter:blur(100px);
+
+    opacity:.25;
+
+    right:-150px;
+    top:-150px;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:#ffd84c;
+
+    filter:blur(100px);
+
+    opacity:.18;
+
+    left:-120px;
+    bottom:-100px;
+}
+
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+
+    align-items:center;
+    gap:8px;
+
+    padding:8px 14px;
+    margin-bottom:22px;
+
+    border-radius:30px;
+
+    background:white;
+
+    border:1px solid #dcebf7;
+
+    color:var(--azul);
+
+    font-size:12px;
+    font-weight:800;
+
+    box-shadow:0 5px 20px rgba(0,60,120,.08);
+}
+
+.punto{
+    width:8px;
+    height:8px;
+
+    background:#23c879;
+    border-radius:50%;
+}
+
+.hero h1{
+    font-size:clamp(45px,6vw,75px);
+
+    line-height:1.03;
+
+    color:var(--oscuro);
+
+    letter-spacing:-3px;
+
+    margin-bottom:25px;
+
+    font-weight:950;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--azul);
+}
+
+.hero p{
+    max-width:570px;
+
+    color:#607188;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border-radius:11px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--azul);
+    color:white;
+
+    box-shadow:0 10px 25px rgba(7,86,168,.25);
+}
+
+.btn-primary:hover{
+    background:var(--azul-claro);
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    background:white;
+
+    color:var(--azul);
+
+    border:1px solid #d7e6f2;
+}
+
+.btn-secondary:hover{
+    background:var(--celeste);
+    transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   IMAGEN HERO
+===================================================== */
+
+.hero-image{
+    position:relative;
+
+    height:520px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 70px rgba(0,50,100,.20);
+
+    border:8px solid white;
+
+    animation:flotar 5s ease-in-out infinite;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+@keyframes flotar{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.image-label{
+    position:absolute;
+
+    left:20px;
+    bottom:20px;
+
+    padding:14px 18px;
+
+    background:rgba(255,255,255,.94);
+
+    border-radius:13px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.image-label strong{
+    display:block;
+
+    color:var(--azul);
+
+    font-size:15px;
+
+    margin-bottom:3px;
+}
+
+.image-label span{
+    color:#68788d;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+section{
+    padding:100px 7%;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-tag{
+    color:var(--azul);
+
+    font-size:12px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+}
+
+.section-header h2{
+    font-size:clamp(32px,5vw,52px);
+
+    color:var(--oscuro);
+
+    margin-bottom:13px;
+}
+
+.section-header p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--gris);
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CONOCE EL COLEGIO
+===================================================== */
+
+.colegio{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:35px;
+
+    align-items:center;
+}
+
+.about-image{
+    height:470px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0,50,100,.13);
+
+    border:6px solid white;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.about-image:hover img{
+    transform:scale(1.05);
+}
+
+.about-content{
+    padding:15px;
+}
+
+.about-number{
+    color:var(--azul);
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.about-content h3{
+    font-size:36px;
+
+    color:var(--oscuro);
+
+    margin:14px 0 20px;
+}
+
+.about-content p{
+    color:#68788d;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+}
+
+.about-list{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin-top:25px;
+}
+
+.about-item{
+    padding:18px;
+
+    border-radius:15px;
+
+    background:#f5faff;
+
+    border:1px solid #e0edf7;
+}
+
+.about-item strong{
+    display:block;
+
+    color:var(--azul);
+
+    font-size:20px;
+
+    margin-bottom:4px;
+}
+
+.about-item span{
+    color:#68788d;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   GALERÍA
+===================================================== */
+
+.galeria{
+    background:#f5f8fc;
+}
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr .8fr;
+
+    grid-template-rows:230px 230px;
+
+    gap:18px;
+}
+
+.gallery-item{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#dceaf4;
+
+    box-shadow:
+        0 10px 30px rgba(0,50,100,.08);
+}
+
+.gallery-item:first-child{
+    grid-row:span 2;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.07);
+}
+
+.gallery-caption{
+    position:absolute;
+
+    left:15px;
+    right:15px;
+    bottom:15px;
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:rgba(0,40,80,.72);
+
+    backdrop-filter:blur(8px);
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   VIDEO VIDA ESTUDIANTIL
+===================================================== */
+
+.video-vida{
+    margin-top:35px;
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:30px;
+
+    align-items:center;
+}
+
+.video-container{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:#001d3a;
+
+    border:6px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25);
+}
+
+.video-container video{
+    display:block;
+
+    width:100%;
+
+    height:430px;
+
+    object-fit:cover;
+
+    background:#001d3a;
+}
+
+.video-text{
+    padding:25px;
+}
+
+.video-text h3{
+    font-size:30px;
+
+    margin-bottom:15px;
+
+    color:white;
+}
+
+.video-text p{
+    color:#d8ecff;
+
+    line-height:1.8;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   BENEFICIOS
+===================================================== */
+
+.beneficios{
+    background:white;
+}
+
+.benefit-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.benefit-card{
+    padding:30px;
+
+    border-radius:20px;
+
+    background:#f8fbfe;
+
+    border:1px solid #e3edf5;
+
+    transition:.3s;
+}
+
+.benefit-card:hover{
+    transform:translateY(-7px);
+
+    border-color:#b9dcf5;
+
+    box-shadow:
+        0 18px 40px rgba(0,70,130,.10);
+}
+
+.benefit-icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#e7f5ff;
+
+    font-size:26px;
+
+    margin-bottom:20px;
+}
+
+.benefit-card h3{
+    color:var(--oscuro);
+
+    font-size:19px;
+
+    margin-bottom:10px;
+}
+
+.benefit-card p{
+    color:#718095;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   VIDA ESTUDIANTIL
+===================================================== */
+
+.vida{
+    background:
+        linear-gradient(
+            135deg,
+            #0756a8,
+            #087dc7
+        );
+
+    color:white;
+}
+
+.vida .section-tag{
+    color:#ffe05b;
+}
+
+.vida .section-header h2{
+    color:white;
+}
+
+.vida .section-header p{
+    color:#d9edff;
+}
+
+.vida-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+.vida-card{
+    padding:30px;
+
+    background:rgba(255,255,255,.10);
+
+    border:1px solid rgba(255,255,255,.16);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+}
+
+.vida-card:hover{
+    transform:translateY(-7px);
+
+    background:rgba(255,255,255,.15);
+}
+
+.vida-card span{
+    font-size:32px;
+
+    display:block;
+
+    margin-bottom:18px;
+}
+
+.vida-card h3{
+    margin-bottom:10px;
+
+    font-size:20px;
+}
+
+.vida-card p{
+    color:#d8ecff;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   ESPECIALIDADES
+===================================================== */
+
+.carreras{
+    background:#f5f8fc;
+}
+
+.career-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.career-card{
+    position:relative;
+
+    padding:40px;
+
+    min-height:340px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:white;
+
+    border:1px solid #e0eaf3;
+
+    box-shadow:
+        0 12px 35px rgba(0,50,100,.07);
+
+    transition:.35s;
+}
+
+.career-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 25px 55px rgba(0,60,120,.14);
+}
+
+.card-icon{
+    width:70px;
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:#e8f5ff;
+
+    font-size:32px;
+
+    margin-bottom:25px;
+}
+
+.career-card h3{
+    font-size:30px;
+
+    color:var(--oscuro);
+
+    margin-bottom:13px;
+}
+
+.career-card p{
+    color:#6d7d91;
+
+    line-height:1.8;
+
+    max-width:500px;
+}
+
+.card-button{
+    position:absolute;
+
+    left:40px;
+    bottom:30px;
+
+    padding:11px 17px;
+
+    border-radius:9px;
+
+    color:var(--azul);
+
+    background:#eaf6ff;
+
+    font-weight:800;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.card-button:hover{
+    background:var(--azul);
+
+    color:white;
+}
+
+
+/* =====================================================
+   CONTACTO
+===================================================== */
+
+.contacto{
+    padding:90px 7%;
+
+    background:white;
+}
+
+.contact-box{
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:65px 50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf6ff,
+            #fff9df
+        );
+
+    border:1px solid #d9eaf5;
+}
+
+.contact-box h2{
+    font-size:38px;
+
+    color:var(--oscuro);
+
+    margin-bottom:12px;
+}
+
+.contact-box p{
+    color:#65758a;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:35px 7%;
+
+    background:#10243d;
+
+    color:white;
+}
+
+.footer-content{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.footer-logo{
+    font-weight:900;
+}
+
+.footer-logo span{
+    color:#49baff;
+}
+
+footer p{
+    color:#a7b7c9;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   BOTÓN ARRIBA
+===================================================== */
+
+.top{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:var(--azul);
+
+    color:white;
+
+    font-size:20px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.top.visible{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-image{
+        height:420px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .benefit-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .vida-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .video-vida{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+
+@media(max-width:700px){
+
+    header{
+        padding:10px;
+    }
+
+    .navbar{
+        height:62px;
+        padding:0 15px;
+    }
+
+    .nav-button{
+        display:none;
+    }
+
+    section{
+        padding:75px 6%;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero h1{
+        font-size:46px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-image{
+        height:330px;
+    }
+
+    .about-image{
+        height:330px;
+    }
+
+    .about-content h3{
+        font-size:28px;
+    }
+
+    .about-list{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        grid-template-rows:repeat(5,220px);
+    }
+
+    .gallery-item:first-child{
+        grid-row:auto;
+    }
+
+    .benefit-grid{
+        grid-template-columns:1fr;
+    }
+
+    .vida-grid{
+        grid-template-columns:1fr;
+    }
+
+    .video-container video{
+        height:280px;
+    }
+
+    .career-grid{
+        grid-template-columns:1fr;
+    }
+
+    .career-card{
+        padding:30px;
+
+        min-height:330px;
+    }
+
+    .card-button{
+        left:30px;
+    }
+
+    .contact-box{
+        padding:45px 25px;
+    }
+
+    .contact-box h2{
+        font-size:30px;
+    }
+
+    .footer-content{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            M
+        </div>
+
+        <div class="logo-text">
+            MUNDO <span>AMÉRICA</span>
+        </div>
+
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#inicio">Inicio</a>
+        </li>
+
+        <li>
+            <a href="#colegio">El Colegio</a>
+        </li>
+
+        <li>
+            <a href="#galeria">Galería</a>
+        </li>
+
+        <li>
+            <a href="#beneficios">Beneficios</a>
+        </li>
+
+        <li>
+            <a href="#carreras">Especialidades</a>
+        </li>
+
+        <li>
+            <a href="#contacto">Contacto</a>
+        </li>
+
+    </ul>
+
+
+    <a href="#colegio" class="nav-button">
+        Conócenos
+    </a>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <div class="badge">
+
+                <span class="punto"></span>
+
+                UNIDAD EDUCATIVA MUNDO AMÉRICA
+
+            </div>
+
+
+            <h1>
+
+                Conoce
+
+                <span>
+                    Mundo América
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Un espacio educativo pensado para acompañar
+                a nuestros estudiantes en su aprendizaje,
+                crecimiento y preparación para el futuro.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#colegio"
+                    class="btn btn-primary"
+                >
+                    Conocer el colegio →
+                </a>
+
+
+                <a
+                    href="#galeria"
+                    class="btn btn-secondary"
+                >
+                    Ver fotografías
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO PRINCIPAL -->
+
+        <div class="hero-image">
+
+            <img
+                src="E:\PAGNAS WEB\261899_c.jpg"
+                alt="Unidad Educativa Mundo América"
+            >
+
+            <div class="image-label">
+
+                <strong>
+                    Unidad Educativa Mundo América
+                </strong>
+
+                <span>
+                    Educación • Valores • Futuro
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONOCE EL COLEGIO
+===================================================== -->
+
+<section class="colegio" id="colegio">
+
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            Nuestra institución
+        </div>
+
+        <h2>
+            Conoce nuestro colegio
+        </h2>
+
+        <p>
+            Descubre el ambiente educativo, los espacios
+            y las oportunidades que forman parte de
+            Mundo América.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-image reveal">
+
+            <img
+                src="E:\PAGNAS WEB\OIP 2.webp"
+                alt="Instalaciones del Colegio Mundo América"
+            >
+
+        </div>
+
+
+        <div class="about-content reveal">
+
+            <span class="about-number">
+                01 / MUNDO AMÉRICA
+            </span>
+
+
+            <h3>
+                Un colegio para aprender,
+                crecer y compartir
+            </h3>
+
+
+            <p>
+
+                Mundo América es una institución educativa
+                donde los estudiantes desarrollan sus
+                conocimientos y habilidades dentro de un
+                ambiente de aprendizaje.
+
+            </p>
+
+
+            <p>
+
+                La etapa escolar es una oportunidad para
+                aprender nuevas cosas, descubrir intereses,
+                compartir con compañeros y construir
+                experiencias que forman parte del crecimiento
+                personal.
+
+            </p>
+
+
+            <div class="about-list">
+
+                <div class="about-item">
+
+                    <strong>📚</strong>
+
+                    <span>
+                        Formación académica
+                    </span>
+
+                </div>
+
+
+                <div class="about-item">
+
+                    <strong>🤝</strong>
+
+                    <span>
+                        Convivencia escolar
+                    </span>
+
+                </div>
+
+
+                <div class="about-item">
+
+                    <strong>💡</strong>
+
+                    <span>
+                        Innovación y aprendizaje
+                    </span>
+
+                </div>
+
+
+                <div class="about-item">
+
+                    <strong>🎓</strong>
+
+                    <span>
+                        Preparación académica
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="galeria" id="galeria">
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            Conoce nuestros espacios
+        </div>
+
+        <h2>
+            Así es Mundo América
+        </h2>
+
+        <p>
+            Conoce nuestras instalaciones, estudiantes
+            y actividades escolares.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <!-- COLEGIO MUNDO AMÉRICA -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="E:\PAGNAS WEB\261899_c.jpg"
+                alt="Colegio Mundo América"
+            >
+
+            <div class="gallery-caption">
+                Colegio Mundo América
+            </div>
+
+        </div>
+
+
+        <!-- ESTUDIANTES MUNDO AMÉRICA -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="E:\PAGNAS WEB\OIPc (1).webp"
+                alt="Estudiantes Mundo América"
+            >
+
+            <div class="gallery-caption">
+                Estudiantes Mundo América
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVIDAD ESCOLAR -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="E:\PAGNAS WEB\OIP.webp"
+                alt="Actividad escolar"
+            >
+
+            <div class="gallery-caption">
+                Actividad escolar
+            </div>
+
+        </div>
+
+
+        <!-- INSTALACIONES -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="E:\PAGNAS WEB\OIP 2.webp"
+                alt="Instalaciones educativas"
+            >
+
+            <div class="gallery-caption">
+                Instalaciones
+            </div>
+
+        </div>
+
+
+        <!-- VIDA ESTUDIANTIL -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="E:\PAGNAS WEB\OIP 3.webp"
+                alt="Vida estudiantil"
+            >
+
+            <div class="gallery-caption">
+                Vida estudiantil
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFICIOS
+===================================================== -->
+
+<section class="beneficios" id="beneficios">
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            Formación
+        </div>
+
+        <h2>
+            ¿Qué encontrarás en Mundo América?
+        </h2>
+
+        <p>
+            Una experiencia educativa que combina aprendizaje,
+            convivencia y desarrollo personal.
+        </p>
+
+    </div>
+
+
+    <div class="benefit-grid">
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                📚
+            </div>
+
+            <h3>
+                Educación
+            </h3>
+
+            <p>
+                Espacios destinados al aprendizaje y
+                desarrollo de conocimientos durante
+                la etapa escolar.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                💻
+            </div>
+
+            <h3>
+                Tecnología
+            </h3>
+
+            <p>
+                Acercamiento a herramientas tecnológicas
+                y recursos que complementan el aprendizaje.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                🔬
+            </div>
+
+            <h3>
+                Ciencia
+            </h3>
+
+            <p>
+                Desarrollo de curiosidad, investigación
+                y pensamiento científico.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                ⚽
+            </div>
+
+            <h3>
+                Actividades
+            </h3>
+
+            <p>
+                Actividades que permiten complementar
+                la experiencia educativa y compartir
+                con otros estudiantes.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                🤝
+            </div>
+
+            <h3>
+                Compañerismo
+            </h3>
+
+            <p>
+                La convivencia escolar permite desarrollar
+                comunicación, respeto y trabajo en equipo.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-card reveal">
+
+            <div class="benefit-icon">
+                🎯
+            </div>
+
+            <h3>
+                Desarrollo personal
+            </h3>
+
+            <p>
+                Los estudiantes pueden fortalecer habilidades,
+                responsabilidades e intereses personales.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     VIDA ESTUDIANTIL
+===================================================== -->
+
+<section class="vida">
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            Vida escolar
+        </div>
+
+        <h2>
+            Una experiencia más allá del aula
+        </h2>
+
+        <p>
+            La vida escolar también está formada por
+            actividades, amistades y experiencias.
+        </p>
+
+    </div>
+
+
+    <div class="vida-grid">
+
+
+        <div class="vida-card reveal">
+
+            <span>🎨</span>
+
+            <h3>
+                Actividades
+            </h3>
+
+            <p>
+                Participación en actividades que
+                complementan la formación académica.
+            </p>
+
+        </div>
+
+
+        <div class="vida-card reveal">
+
+            <span>🏫</span>
+
+            <h3>
+                Espacios educativos
+            </h3>
+
+            <p>
+                Ambientes donde los estudiantes pueden
+                aprender y desarrollar diferentes habilidades.
+            </p>
+
+        </div>
+
+
+        <div class="vida-card reveal">
+
+            <span>👥</span>
+
+            <h3>
+                Comunidad
+            </h3>
+
+            <p>
+                Compartir experiencias con compañeros,
+                docentes y miembros de la comunidad educativa.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         VIDEO AGREGADO
+    ================================================= -->
+
+    <div class="video-vida reveal">
+
+        <div class="video-container">
+
+            <video
+                controls
+                preload="metadata"
+            >
+
+                <source
+                    src="E:\PAGNAS WEB\videoplayback.mp4"
+                    type="video/mp4"
+                >
+
+                Tu navegador no puede reproducir este video.
+
+            </video>
+
+        </div>
+
+
+        <div class="video-text">
+
+            <h3>
+                Vive la experiencia estudiantil
+            </h3>
+
+            <p>
+                Conoce mediante este video algunos momentos
+                de la vida estudiantil y las experiencias
+                que forman parte de la comunidad educativa
+                de Mundo América.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ESPECIALIDADES
+===================================================== -->
+
+<section class="carreras" id="carreras">
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            Formación académica
+        </div>
+
+        <h2>
+            Conoce nuestras áreas
+        </h2>
+
+        <p>
+            Explora las áreas de formación disponibles
+            dentro de la institución.
+        </p>
+
+    </div>
+
+
+    <div class="career-grid">
+
+
+        <article class="career-card reveal">
+
+            <div class="card-icon">
+                🔬
+            </div>
+
+            <h3>
+                Ciencias
+            </h3>
+
+            <p>
+                Área orientada al conocimiento científico,
+                investigación, análisis y desarrollo
+                del pensamiento crítico.
+            </p>
+
+            <a
+                href="ciencia.html"
+                class="card-button"
+            >
+                Conocer Ciencias →
+            </a>
+
+        </article>
+
+
+        <article class="career-card reveal">
+
+            <div class="card-icon">
+                💻
+            </div>
+
+            <h3>
+                Técnico
+            </h3>
+
+            <p>
+                Área relacionada con tecnología,
+                informática, programación y conocimientos
+                aplicados.
+            </p>
+
+            <a
+                href="tecnico.html"
+                class="card-button"
+            >
+                Conocer Técnico →
+            </a>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section class="contacto" id="contacto">
+
+<div class="contact-box reveal">
+
+
+    <div>
+
+        <h2>
+            ¿Quieres conocer Mundo América?
+        </h2>
+
+        <p>
+            Explora nuestra institución y descubre
+            todo lo que forma parte de la experiencia
+            educativa.
+        </p>
+
+    </div>
+
+
+    <a
+        href="#galeria"
+        class="btn btn-primary"
+    >
+        Ver nuestra galería →
+    </a>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-content">
+
+    <div class="footer-logo">
+
+        MUNDO <span>AMÉRICA</span>
+
+    </div>
+
+
+    <p>
+        © 2026 Unidad Educativa Mundo América
+    </p>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOTÓN ARRIBA
+===================================================== -->
+
+<a
+    href="#inicio"
+    class="top"
+    id="top"
+>
+    ↑
+</a>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* BOTÓN ARRIBA */
+
+const topButton =
+    document.getElementById("top");
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 500){
+
+            topButton.classList.add("visible");
+
+        }else{
+
+            topButton.classList.remove("visible");
+
+        }
+
+    }
+);
+
+
+/* ANIMACIONES */
+
+const elementos =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("show");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+elementos.forEach(
+    elemento => {
+
+        observer.observe(elemento);
+
+    }
+);
+
+
+/* EFECTO DE CLICK */
+
+document
+.querySelectorAll("a")
+.forEach(
+    enlace => {
+
+        enlace.addEventListener(
+            "click",
+            () => {
+
+                enlace.style.transform =
+                    "scale(.97)";
+
+                setTimeout(
+                    () => {
+
+                        enlace.style.transform = "";
+
+                    },
+                    150
+                );
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
